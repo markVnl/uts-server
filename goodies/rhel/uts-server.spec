@@ -40,6 +40,15 @@ install -m 644 goodies/rhel/uts-server.service %{buildroot}%{_unitdir}/%{name}.s
 %{_sbindir}/groupadd -r uts-server 2>/dev/null || :
 %{_sbindir}/useradd -g uts-server -c "Uts-Server User" -s /bin/false uts-server 2>/dev/null || :
 
+%post
+%systemd_post %{name}.service
+
+%preun
+%systemd_preun %{name}.service
+
+%postun
+%systemd_postun_with_restart %{name}.service
+
 
 %files
 %license LICENSE
