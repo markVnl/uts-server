@@ -7,6 +7,8 @@ Version:        0.2.0
 Release:        0.2
 URL:            https://github.com/kakwa/uts-server
 Source0:        https://github.com/kakwa/uts-server/archive/%{version}.tar.gz
+Source1:        uts-server
+Source2:        uts-server.service
 
 Requires:       libcivetweb1_13_0
 
@@ -32,9 +34,9 @@ uts-server is a Micro RFC 3161 Time-Stamp server written in C.
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}
 install -m 640 conf/uts-server.cnf  %{buildroot}%{_sysconfdir}/%{name}/%{name}.cfg
 mkdir -p %{buildroot}%{_sysconfdir}/sysconfig
-install -m 664 goodies/rhel/uts-server %{buildroot}%{_sysconfdir}/sysconfig/%{name}
+install -m 664 %{SOURCE1} %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 mkdir -p %{buildroot}/%{_unitdir}
-install -m 644 goodies/rhel/uts-server.service %{buildroot}%{_unitdir}/%{name}.service
+install -m 644 %{SOURCE2} %{buildroot}%{_unitdir}/%{name}.service
 
 %pre
 %{_sbindir}/groupadd -r uts-server 2>/dev/null || :

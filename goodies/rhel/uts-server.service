@@ -5,8 +5,12 @@ Wants=network.service
 
 [Service]
 Type=forking
+User=uts-server
+Group=uts-server
+RuntimeDirectory=uts-server
+RuntimeDirectoryMode=0775
 PIDFile=/var/run/uts-server/uts-server.pid
-User=$USER
+
 EnvironmentFile=/etc/sysconfig/uts-server
 ExecStart=/usr/bin/uts-server $OPTIONS -p /var/run/uts-server/uts-server.pid
 KillMode=process
