@@ -4,7 +4,7 @@ Summary:        Micro RFC 3161 Time-Stamp server
 License:        MIT
 Group:          Productivity/Networking/Web/Servers
 Version:        0.2.0
-Release:        0.2
+Release:        0.3
 URL:            https://github.com/kakwa/uts-server
 Source0:        https://github.com/kakwa/uts-server/archive/%{version}.tar.gz
 Source1:        uts-server
